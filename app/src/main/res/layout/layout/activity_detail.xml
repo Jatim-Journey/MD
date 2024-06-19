@@ -1,0 +1,166 @@
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.DetailActivity"
+    android:layout_margin="12dp">
+
+    <!-- Image at the top -->
+    <ImageView
+        android:id="@+id/imageViewHeader"
+        android:layout_width="0dp"
+        android:layout_height="250dp"
+        android:scaleType="centerCrop"
+        tools:src="@tools:sample/avatars"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- Back button -->
+    <ImageButton
+        android:id="@+id/buttonBack"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:background="@drawable/back_button_background"
+        android:src="@drawable/ic_back"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintMarginStart="16dp"
+        app:layout_constraintMarginTop="16dp" />
+
+    <!-- Main content container -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/containerContent"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/rounded_corner_background"
+        app:layout_constraintTop_toBottomOf="@id/imageViewHeader"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintVertical_bias="0">
+
+        <!-- Title -->
+        <TextView
+            android:id="@+id/textViewTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="Kawah Ijen"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintMarginStart="16dp"
+            app:layout_constraintMarginTop="16dp" />
+
+        <!-- Location -->
+        <TextView
+            android:layout_marginTop="5dp"
+            android:id="@+id/textViewLocation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Banyuwangi, Indonesia"
+            app:layout_constraintTop_toBottomOf="@id/textViewTitle"
+            app:layout_constraintStart_toStartOf="@id/textViewTitle"
+            app:layout_constraintMarginTop="8dp" />
+
+        <!-- Rating and Price -->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/containerRatingPrice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/textViewLocation"
+            app:layout_constraintStart_toStartOf="@id/textViewLocation"
+            app:layout_constraintMarginTop="8dp">
+
+            <!-- Star Rating -->
+            <RatingBar
+                android:layout_marginTop="12dp"
+                android:id="@+id/ratingBar"
+                style="@style/Widget.AppCompat.RatingBar.Small"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:numStars="5"
+                android:rating="4.5"
+                android:stepSize="0.1"
+                android:isIndicator="true" />
+
+            <!-- Rating Value -->
+            <TextView
+                android:id="@+id/textViewRatingValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="4.5"
+                app:layout_constraintStart_toEndOf="@id/ratingBar"
+                app:layout_constraintBottom_toBottomOf="@id/ratingBar"
+                app:layout_constraintMarginStart="8dp" />
+
+            <!-- Price Indicator -->
+            <TextView
+                android:id="@+id/textViewPriceIndicator"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="$$$"
+                android:layout_marginStart="12dp"
+                app:layout_constraintStart_toEndOf="@id/textViewRatingValue"
+                app:layout_constraintBottom_toBottomOf="@id/textViewRatingValue"
+                app:layout_constraintMarginStart="8dp" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <!-- Details -->
+        <TextView
+            android:id="@+id/textViewDetails"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="Ijen Crater, a top tourist destination in East Java, is renowned for its mysterious beauty, featuring blue water and an eternal blue fire, a rare natural phenomenon."
+            app:layout_constraintTop_toBottomOf="@id/containerRatingPrice"
+            app:layout_constraintStart_toStartOf="@id/textViewTitle"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintMarginTop="16dp"
+            app:layout_constraintMarginEnd="16dp" />
+
+        <!-- Map Image -->
+        <ImageView
+            android:id="@+id/imageViewMap"
+            android:layout_width="0dp"
+            android:layout_height="150dp"
+            android:layout_marginTop="12dp"
+            tools:src="@tools:sample/avatars"
+            android:scaleType="centerCrop"
+            app:layout_constraintTop_toBottomOf="@id/textViewDetails"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintMarginTop="16dp"
+            app:layout_constraintMarginStart="16dp"
+            app:layout_constraintMarginEnd="16dp" />
+
+        <!-- Tour Providers -->
+        <TextView
+            android:id="@+id/textViewTourProviders"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="Agen penyedia tour"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintTop_toBottomOf="@id/imageViewMap"
+            app:layout_constraintStart_toStartOf="@id/textViewTitle"
+            app:layout_constraintMarginTop="16dp" />
+
+        <!-- Tour Provider List -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerViewTourProviders"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/textViewTourProviders"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintMarginTop="8dp"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
