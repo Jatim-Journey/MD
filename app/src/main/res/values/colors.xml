@@ -4,4 +4,10 @@
         <color name="black">#000000</color>
         <color name="orange">#FFA500</color>
         <color name="blue">#007BFF</color>
+        <color name="color_primary">#007BFF</color>
+        <color name="grey">#777777</color>
+        <color name="location">#1C9FE2</color>
+        <color name="bluedark">#00296B</color>
+        <color name="rating">#FFDD2D</color>
+        <color name="harga">#F05C35</color>
 </resources>

@@ -38,7 +38,6 @@ class HomeAdapter : PagingDataAdapter<Wisata, HomeAdapter.ListViewHolder>(DIFF_C
                     holder.itemView.context as Activity,
                     Pair(holder.itemView.findViewById<ImageView>(R.id.img_item_photo), "storyImage"),
                     Pair(holder.itemView.findViewById<TextView>(R.id.tv_item_name), "storyTitle"),
-                    Pair(holder.itemView.findViewById<TextView>(R.id.tv_item_description), "storyDesc")
                 )
             holder.itemView.context.startActivity(intent, optionsCompat.toBundle())
         }
@@ -46,12 +45,10 @@ class HomeAdapter : PagingDataAdapter<Wisata, HomeAdapter.ListViewHolder>(DIFF_C
 
     class ListViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         private val storyTitle: TextView = view.findViewById(R.id.tv_item_name)
-        private val storyDesc: TextView = view.findViewById(R.id.tv_item_description)
         private val imgStory: ImageView = view.findViewById(R.id.img_item_photo)
 
         fun bind(user: Wisata) {
             storyTitle.text = user.place
-            storyDesc.text = user.description
             Glide.with(itemView.context).load(user.imageUrl).into(imgStory)
         }
     }

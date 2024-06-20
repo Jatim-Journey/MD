@@ -10,12 +10,11 @@
     android:layout_marginTop="4dp"
     android:layout_marginEnd="8dp"
     android:layout_marginBottom="4dp"
-    card_view:cardCornerRadius="10dp"
-    card_view:cardElevation="0dp">
+    card_view:cardCornerRadius="10dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="138dp"
+        android:layout_height="159dp"
         android:padding="8dp">
 
         <ImageView
@@ -26,43 +25,45 @@
             card_view:layout_constraintBottom_toBottomOf="parent"
             card_view:layout_constraintStart_toStartOf="parent"
             card_view:layout_constraintTop_toTopOf="parent"
-            tools:src="@drawable/mountain_image" />
+            tools:src="@drawable/ic_profile" />
 
         <TextView
             android:id="@+id/tv_item_name"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="4dp"
             android:layout_marginEnd="8dp"
-            android:textSize="16sp"
+            android:textSize="12sp"
             android:textStyle="bold"
             card_view:layout_constraintEnd_toEndOf="parent"
             card_view:layout_constraintHorizontal_bias="1.0"
             card_view:layout_constraintStart_toEndOf="@id/img_item_photo"
             card_view:layout_constraintTop_toTopOf="@id/img_item_photo"
-            tools:text="@string/places_name" />
+            tools:text="@string/paketdestinasi" />
 
         <TextView
             android:id="@+id/tv_asal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:textColor="@color/location"
+            android:layout_marginTop="4dp"
+            android:textColor="@color/harga"
             android:textSize="12sp"
+            card_view:layout_constraintBottom_toBottomOf="parent"
             card_view:layout_constraintStart_toEndOf="@+id/img_item_photo"
-            card_view:layout_constraintTop_toBottomOf="@+id/tv_item_name"
+            card_view:layout_constraintTop_toBottomOf="@+id/textViewRatingValue"
+            card_view:layout_constraintVertical_bias="0.032"
             tools:ignore="SmallSp"
-            tools:text="Malang,Indonesia" />
+            tools:text="Rp. 12.000" />
 
         <RatingBar
             android:id="@+id/ratingBar"
             style="@style/Widget.AppCompat.RatingBar.Small"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="75dp"
+            android:layout_height="22dp"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="36dp"
+            android:layout_marginTop="12dp"
             android:isIndicator="true"
             android:numStars="5"
             android:rating="4.5"
@@ -75,22 +76,30 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
-            android:layout_marginBottom="16dp"
+            android:layout_marginTop="8dp"
+            android:text="Ardhana Tour and Travel"
             android:textColor="@color/grey"
-            android:text="4.5"
-            card_view:layout_constraintBottom_toBottomOf="parent"
-            card_view:layout_constraintStart_toEndOf="@+id/ratingBar" />
+            android:textSize="9dp"
+            card_view:layout_constraintStart_toEndOf="@+id/img_item_photo"
+            card_view:layout_constraintTop_toBottomOf="@+id/ratingBar"
+            tools:ignore="MissingConstraints" />
 
-        <TextView
-            android:id="@+id/textViewPriceIndicator"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:layout_marginBottom="16dp"
-            android:textColor="@color/rating"
-            android:text="$$$"
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/tv_tour"
+            android:layout_width="56dp"
+            android:layout_height="21dp"
+            android:layout_marginBottom="8dp"
+            android:background="@color/bluedark"
+            android:gravity="center"
+            android:text="Pilih Tour"
+            android:textAlignment="center"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="8dp"
             card_view:layout_constraintBottom_toBottomOf="parent"
-            card_view:layout_constraintStart_toEndOf="@+id/textViewRatingValue" />
+            card_view:layout_constraintEnd_toEndOf="parent"
+            card_view:layout_constraintHorizontal_bias="0.842"
+            card_view:layout_constraintStart_toEndOf="@+id/tv_asal" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

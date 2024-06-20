@@ -10,11 +10,6 @@ interface ApiService {
     fun getPlaces(): Call<GetPlace>
 
     @GET("choice")
-    fun getChoice(
-        @Query("user_id") userId: Int
-    ): Call<GetPlace>
-
-
-
+    fun getChoice(@Query("user_id") userId: Int): Call<GetPlace>
 }
 

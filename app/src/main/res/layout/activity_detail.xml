@@ -1,4 +1,6 @@
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -16,9 +18,6 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
-
-    <!-- Back button -->
-
 
     <!-- Main content container -->
     <LinearLayout
@@ -102,6 +101,7 @@
             android:layout_marginTop="16dp"
             android:layout_marginStart="16dp"
             android:layout_marginEnd="16dp" />
+
         <!-- Tour Providers -->
         <TextView
             android:id="@+id/textViewTourProviders"
@@ -114,11 +114,14 @@
             android:layout_marginStart="16dp" />
 
         <!-- Tour Provider List -->
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerViewTourProviders"
+        <TextView
+            android:id="@+id/tvTravel"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="16dp" />
+            android:layout_marginTop="16dp"
+            android:text="Ijen Crater, a top tourist destination in East Java, is renowned for its mysterious beauty, featuring blue water and an eternal blue fire, a rare natural phenomenon."
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp" />
     </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
