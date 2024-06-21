@@ -5,7 +5,22 @@ import com.google.gson.annotations.SerializedName
 
 data class GetPlace(
     @SerializedName("listPlaces")
-    val listPlace: List<Wisata> = emptyList()
+    val listPlace: List<Wisata> = emptyList(),
+
+    @SerializedName("Wisata Alam")
+    val places: List<Wisata>,
+
+    @SerializedName("Wisata Bahari")
+    val bahari: List<Wisata>,
+
+    @SerializedName("Budaya")
+    val budaya: List<Wisata>,
+
+    @SerializedName("Taman Hiburan")
+    val taman: List<Wisata>,
+
+    @SerializedName("Wisata Religi")
+    val religion: List<Wisata>,
 )
 
 data class Wisata(
@@ -42,6 +57,12 @@ data class Wisata(
     @SerializedName("travel4")
     val travel4: String,
 
+    @SerializedName("phones")
+    val phone: String,
+
+    @SerializedName("sites")
+    val sites: String,
+
     // Tambahkan properti lain yang diperlukan
 ) : Parcelable {
     constructor(parcel: Parcel) : this(
@@ -56,6 +77,8 @@ data class Wisata(
         parcel.readString().toString(),
         parcel.readString().toString(),
         parcel.readString().toString(),
+        parcel.readString().toString(),
+        parcel.readString().toString()
     )
 
     override fun writeToParcel(parcel: Parcel, flags: Int) {
@@ -70,6 +93,8 @@ data class Wisata(
         parcel.writeString(travel2)
         parcel.writeString(travel3)
         parcel.writeString(travel4)
+        parcel.writeString(phone)
+        parcel.writeString(sites)
     }
 
     override fun describeContents(): Int {

@@ -11,5 +11,9 @@ interface ApiService {
 
     @GET("choice")
     fun getChoice(@Query("user_id") userId: Int): Call<GetPlace>
+
+    @GET("/category")
+    fun getCategoryAlam(@Query("category") category: String): Call<GetPlace>
+
 }
 

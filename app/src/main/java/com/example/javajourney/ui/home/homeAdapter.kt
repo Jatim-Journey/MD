@@ -15,6 +15,10 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.javajourney.R
 import com.example.javajourney.data.response.Wisata
+import com.example.javajourney.ui.category.CategoryAlamActivity
+import com.example.javajourney.ui.category.CategoryBahariActivity
+import com.example.javajourney.ui.category.CategoryBudayaActivity
+import com.example.javajourney.ui.category.CategoryTamanActivity
 import com.example.javajourney.ui.detail.DetailActivity
 
 class HomeAdapter : PagingDataAdapter<Wisata, HomeAdapter.ListViewHolder>(DIFF_CALLBACK) {
@@ -65,3 +69,5 @@ class HomeAdapter : PagingDataAdapter<Wisata, HomeAdapter.ListViewHolder>(DIFF_C
         }
     }
 }
+
+

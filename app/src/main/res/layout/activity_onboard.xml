@@ -1,73 +1,93 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white">
+    android:background="#FFFFFF"
+    tools:context=".ui.OnboardActivity">
 
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="match_parent"
         android:layout_height="444dp"
-        android:layout_alignParentTop="true"
         android:scaleType="centerCrop"
-        android:src="@drawable/mountain_image" />
+        app:layout_constraintBottom_toTopOf="@id/titleTextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/mountain_image" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/titleTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/imageView"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp"
-        android:fontFamily="sans-serif-medium"
+        android:layout_marginTop="16dp"
         android:text="Selamat Datang Di"
-        android:textColor="@color/black"
-        android:textSize="24sp" />
+        android:textColor="#000000"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/imageView" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/subtitleTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/textView"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="10dp"
-        android:fontFamily="sans-serif-bold"
-        android:text="J-Team Journey"
-        android:textColor="@color/orange"
-        android:textSize="28sp" />
+        android:text="Jatim Journey"
+        android:textColor="#FF7F00"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@id/titleTextView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBaseline_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
-    <View
-        android:id="@+id/divider"
-        android:layout_width="100dp"
-        android:layout_height="3dp"
-        android:layout_below="@id/textView2"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="10dp"
-        android:background="@color/orange" />
+    <ImageView
+        android:id="@+id/vektor"
+        android:layout_width="62.92dp"
+        android:layout_height="10.3dp"
+        android:layout_marginTop="8dp"
+        android:gravity="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/subtitleTextView"
+        app:srcCompat="@drawable/vektor" />
 
     <TextView
-        android:id="@+id/textView3"
-        android:layout_width="match_parent"
+        android:id="@+id/descriptionTextView"
+        android:layout_width="350dp"
         android:layout_height="wrap_content"
-        android:layout_below="@id/divider"
         android:layout_centerHorizontal="true"
-        android:layout_marginStart="20dp"
         android:layout_marginTop="20dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginBottom="20dp"
-        android:gravity="center_horizontal"
         android:text="Tidak sabar untuk memulai? Ayo jelajahi keajaiban alam, budaya, dan kuliner Jawa Timur sekarang juga. Klik tombol di bawah dan mulai petualangan Anda!"
-        android:textColor="@color/black"
-        android:textSize="14sp" />
+        android:textColor="#777777"
+        android:textSize="14sp"
+        android:gravity="center"
+        android:textAlignment="center"
+        android:lineSpacingExtra="2dp"
+        android:lineSpacingMultiplier="1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/vektor" />
 
-    <Button
-        android:id="@+id/button"
-        android:layout_width="wrap_content"
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/mulai"
+        android:layout_width="315dp"
         android:layout_height="wrap_content"
-        android:layout_below="@id/textView3"
-        android:layout_centerHorizontal="true"
-        android:backgroundTint="@color/blue"
+        android:layout_marginTop="20dp"
         android:text="Mulai"
-        android:textColor="@color/white" />
+        android:textSize="18dp"
+        android:gravity="center"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:background="@drawable/bg_btn"
+        android:textAllCaps="false"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/descriptionTextView" />
 
-</RelativeLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

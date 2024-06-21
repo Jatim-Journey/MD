@@ -6,7 +6,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.detail.DetailActivity"
-    android:layout_margin="12dp">
+    android:layout_margin="12dp"
+    android:background="@color/white">
 
     <!-- Image at the top -->
     <ImageView
@@ -64,6 +65,7 @@
             <!-- Tambahkan Star Rating di sini -->
 
             <!-- Rating Value -->
+
             <TextView
                 android:id="@+id/textViewRatingValue"
                 android:layout_width="wrap_content"
@@ -92,17 +94,67 @@
             android:layout_marginEnd="16dp" />
 
         <!-- Map Image -->
-        <ImageView
-            android:id="@+id/imageViewMap"
-            android:layout_width="match_parent"
-            android:layout_height="150dp"
-            tools:src="@tools:sample/avatars"
-            android:scaleType="centerCrop"
-            android:layout_marginTop="16dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp" />
 
         <!-- Tour Providers -->
+        <TextView
+            android:id="@+id/Contact"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Contact"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:layout_marginTop="16dp"
+            android:layout_marginStart="16dp" />
+
+        <!-- Tour Provider List -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="15dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp">
+
+            <ImageView
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:src="@drawable/global" />
+            <TextView
+                android:layout_marginStart="10dp"
+                android:id="@+id/Sites"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Sites" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="15dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp">
+
+            <ImageView
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:src="@drawable/mobile" />
+
+            <TextView
+                android:layout_marginStart="10dp"
+                android:id="@+id/Phone"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Phone" />
+
+
+        </LinearLayout>
+
+
         <TextView
             android:id="@+id/textViewTourProviders"
             android:layout_width="wrap_content"

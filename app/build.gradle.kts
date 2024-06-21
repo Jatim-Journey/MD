@@ -2,6 +2,9 @@ plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
     id("kotlin-kapt")
+    id ("kotlin-android")
+    id ("kotlin-parcelize")
+
 }
 
 android {
@@ -33,7 +36,7 @@ android {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
     }
-    kotlinOptions {
+        kotlinOptions {
         jvmTarget = "1.8"
     }
 }

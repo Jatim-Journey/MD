@@ -1,6 +1,7 @@
 package com.example.javajourney.ui.starter
 
 import StarterAdapter
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
@@ -14,6 +15,7 @@ import com.example.javajourney.R
 import com.example.javajourney.data.api.apiConfig
 import com.example.javajourney.data.response.GetPlace
 import com.example.javajourney.data.response.Wisata
+import com.example.javajourney.ui.home.HomeActivity
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -71,6 +73,11 @@ class starter_Activity : AppCompatActivity() {
                     if (places != null && places.isNotEmpty()) {
                         Log.d("starter_Activity", "Places found: ${places.size}")
                         adapter.updateData(places)
+
+                        // Pass data to HomeActivity and start it
+                        val intent = Intent(this@starter_Activity, HomeActivity::class.java)
+                        intent.putParcelableArrayListExtra("places", ArrayList(places))
+                        startActivity(intent)
                     } else {
                         Log.d("starter_Activity", "No places found or list is empty")
                         Toast.makeText(this@starter_Activity, "No places found", Toast.LENGTH_SHORT).show()

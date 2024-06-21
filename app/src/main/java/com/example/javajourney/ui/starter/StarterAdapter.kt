@@ -11,7 +11,6 @@ import com.bumptech.glide.Glide
 import com.example.javajourney.R
 import com.example.javajourney.data.response.Wisata
 import com.example.javajourney.ui.detail.DetailActivity
-import org.w3c.dom.Text
 
 class StarterAdapter(private val context: Context, private var places: List<Wisata>) :
     RecyclerView.Adapter<StarterAdapter.PlaceViewHolder>() {
@@ -56,11 +55,16 @@ class StarterAdapter(private val context: Context, private var places: List<Wisa
             tvPrice.text = place.price
             tvCity.text = place.city
 
-            // Load image using Glide
-            Glide.with(context)
-                .load(place.imageUrl)
-                .centerCrop()
-                .into(imgPhoto)
+            // Load image using Glide or set default image
+            if (!place.imageUrl.isNullOrBlank()) {
+                Glide.with(context)
+                    .load(place.imageUrl)
+                    .centerCrop()
+                    .into(imgPhoto)
+            } else {
+                // Set default image if no imageUrl is provided
+                imgPhoto.setImageResource(R.drawable.baseline_person_24)
+            }
         }
     }
 }

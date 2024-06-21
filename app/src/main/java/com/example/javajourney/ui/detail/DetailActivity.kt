@@ -1,8 +1,8 @@
 package com.example.javajourney.ui.detail
 
-
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.text.util.Linkify
+import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
 import com.example.javajourney.R
 import com.example.javajourney.data.response.Wisata
@@ -36,13 +36,23 @@ class DetailActivity : AppCompatActivity() {
                 textViewTitle.text = place.place
                 textViewLocation.text = place.city
                 textViewDetails.text = place.description
+                textViewPriceIndicator.text = place.price
 
+                if (place.sites.isNotEmpty()) {
+                    Sites.text = place.sites
+                    Linkify.addLinks(Sites, Linkify.WEB_URLS)
+                } else {
+                    Sites.text = "Tidak ada informasi tertera"
+                }
+
+                Phone.text = if (place.phone.isNotEmpty()) place.phone else "Tidak ada informasi tertera"
 
                 val travels = listOf(place.travel1, place.travel2, place.travel3, place.travel4)
                     .filter { travel -> travel.isNotEmpty() }
                     .joinToString ("\n\n")
                 tvTravel.text = travels
-                // Implementasi untuk RecyclerView dan lainnya
+
+                Linkify.addLinks(tvTravel, Linkify.WEB_URLS)
             }
         }
     }
@@ -52,4 +62,3 @@ class DetailActivity : AppCompatActivity() {
         return true
     }
 }
-

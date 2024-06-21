@@ -1,88 +1,58 @@
 package com.example.javajourney.ui.home
 
-import android.content.ContentValues.TAG
+import StarterAdapter
 import android.content.Intent
-import android.os.Build
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import android.view.WindowInsets
-import android.view.WindowManager
-import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
-import com.example.javajourney.R
-import com.example.javajourney.data.api.apiConfig
-import com.example.javajourney.data.response.GetPlace
+import com.example.javajourney.data.response.Wisata
 import com.example.javajourney.databinding.ActivityHomeBinding
-import retrofit2.Call
-import retrofit2.Response
-import retrofit2.Callback
+import com.example.javajourney.ui.category.CategoryAlamActivity
+import com.example.javajourney.ui.category.CategoryBahariActivity
+import com.example.javajourney.ui.category.CategoryBudayaActivity
+import com.example.javajourney.ui.category.CategoryReligionActivity
+import com.example.javajourney.ui.category.CategoryTamanActivity
 
 class HomeActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityHomeBinding
-    private lateinit var rvItemAdapter: RecyclerView
-    private lateinit var adapter: HomeAdapter
+    private lateinit var adapter: StarterAdapter
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityHomeBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        adapter = HomeAdapter()
-        rvItemAdapter = findViewById(R.id.rvItem)
-        rvItemAdapter.setHasFixedSize(true)
+        binding.rvItem.layoutManager = LinearLayoutManager(this)
 
-        showList()
+        val places = intent.getParcelableArrayListExtra<Wisata>("places")
+        if (places != null) {
+            adapter = StarterAdapter(this, places)
+            binding.rvItem.adapter = adapter
+        } else {
+            Log.d("HomeActivity", "No places data received")
+        }
 
+        binding.btnBahari.setOnClickListener {
+            val intent = Intent(this, CategoryBahariActivity::class.java)
+            startActivity(intent)
+        }
+        binding.btnAlam.setOnClickListener {
+            val intent = Intent(this, CategoryAlamActivity::class.java)
+            startActivity(intent)
+        }
+        binding.btnBudaya.setOnClickListener {
+            val intent = Intent(this, CategoryBudayaActivity::class.java)
+            startActivity(intent)
+        }
+        binding.btnTaman.setOnClickListener {
+            val intent = Intent(this, CategoryTamanActivity::class.java)
+            startActivity(intent)
+        }
+        binding.btnReligion.setOnClickListener {
+            val intent = Intent(this, CategoryReligionActivity::class.java)
+            startActivity(intent)
+        }
     }
-
-
-    private fun showList() {
-        val layoutManager = LinearLayoutManager(binding.rvItem.context)
-        binding.rvItem.layoutManager = layoutManager
-
-        val client = apiConfig.getApiService().getPlaces()
-        client.enqueue(object : Callback<GetPlace> {
-            override fun onResponse(
-                call: Call<GetPlace>,
-                response: Response<GetPlace>
-            ) {
-                if (response.isSuccessful) {
-                    val responseBody = response.body()
-                    if (responseBody != null) {
-                        loadStory()
-                    } else {
-                        Toast.makeText(
-                            this@HomeActivity,
-                            "Error: ${response.message()}",
-                            Toast.LENGTH_SHORT
-                        ).show()
-                        Log.e(TAG, "onFailure: ${response.message()}")
-                    }
-                } else {
-                    Toast.makeText(
-                        this@HomeActivity,
-                        "Error: ${response.message()}",
-                        Toast.LENGTH_SHORT
-                    ).show()
-                    Log.e(TAG, "onFailure: ${response.message()}")
-                }
-            }
-
-            override fun onFailure(call: Call<GetPlace>, t: Throwable) {
-                Toast.makeText(this@HomeActivity, "Error: ${t.message}", Toast.LENGTH_SHORT).show()
-                Log.e(TAG, "onFailure: ${t.message}")
-            }
-        })
-        val adapter = HomeAdapter()
-
-    }
-
-    private fun loadStory() {
-        val adapter = HomeAdapter()
-        binding.rvItem.adapter = adapter
-
-    }
-
 }
